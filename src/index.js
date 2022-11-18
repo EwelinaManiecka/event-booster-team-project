@@ -1,2 +1,2 @@
 import './sass/index.css'
-// import './js/main';
+import './js/main';
