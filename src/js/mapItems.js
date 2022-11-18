@@ -1,5 +1,5 @@
 const mapItems = items => {
-  result = items.map(item => ({
+  const result = items.map(item => ({
     name: item.name,
     imageURL: item.images[1].url,
     id: item.id,
