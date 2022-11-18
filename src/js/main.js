@@ -1,12 +1,23 @@
 import Pagination from './pagination';
+import fetchEvents from './fetchEvents';
+import mapItems from './mapItems';
+import rednerItems from './renderItems';
 
-actualPage = 1;
-pagination = null;
-totalItems = 500;
-itemsPerPage = 20;
-buttonHolderID = 'gallery-pagination';
-itemHolderID = null;
+let actualPage = 1;
+let totalItems = 0;
+let itemsPerPage = 0;
+let buttonHolderID = 'gallery-pagination';
+let itemHolderID = 'gallery-list';
+let pagination = null;
+let itemsOnPage = null;
 
-pagination = new Pagination(totalItems, itemsPerPage, buttonHolderID);
+fetchEvents().then(({ events, pageInfo }) => {
+  itemsOnPage = mapItems(events);
+  rednerItems(itemsOnPage, itemHolderID);
 
-pagination.create();
+  actualPage = pageInfo.number;
+  totalItems = pageInfo.totalElements;
+  itemsPerPage = pageInfo.size;
+  pagination = new Pagination(totalItems, itemsPerPage, buttonHolderID);
+  pagination.create();
+});
