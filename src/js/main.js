@@ -45,7 +45,8 @@ const startFetching = isNew => {
 startFetching(true);
 
 form.addEventListener('input', e => {
-  document.getElementById(itemHolderID).innerHTML="TUTAJ BĘDZIE SPINER"
+  document.getElementById(itemHolderID).innerHTML = 'TUTAJ BĘDZIE SPINER';
+  document.getElementById(buttonHolderID).innerHTML = '';
   currentName = e.target.value;
   actualPage = 1;
   startFetching(true);
