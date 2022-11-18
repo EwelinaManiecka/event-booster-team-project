@@ -1,23 +1,50 @@
-<header class="header">
-    <!------------ B A C K G R O U N D ---------->
-    <div class="header__background">
+<header class="header container gradient">
+  <!------------ B A C K G R O U N D ---------->
+  <div class="header__background"></div>
+  <!------------ L O G O ---------->
+  <div class="header__logo">
+    <a href="./index.html">
+      <picture class="header__logo-picture">
+        <source
+          srcset="./images/logo-mobile.png 1x, ./images/logo-mobile@2x.png 2x"
+          media="(min-width: 320px) and (max-width: 767px)" />
+        <source
+          srcset="./images/logo-tablet.png 1x, ./images/logo-tablet@2x.png 2x"
+          media="(min-width: 768px) and (max-width: 1279px)" />
+        <source
+          srcset="./images/logo-desktop.png 1x, ./images/logo-desktop@2x.png 2x"
+          media="(min-width: 1280px)" />
+        <img
+          src="images/logo-mobile.png"
+          alt="main logo"
+          class="header__logo-picture"
+      /></picture>
+    </a>
+  </div>
+  <!------------ H E A D I N G ---------->
+  <div class="header__content-container">
+    <!------------ T I T L E ---------->
+    <div class="header__title">
+      <div class="header__title-first">FIND BEST EVENTS</div>
+      <div class="header__title-second">AROUND THE WORLD</div>
     </div>
-    <!------------ L O G O ---------->
-    <div class="header__logo">
-    </div>
-    <!------------ H E A D I N G ---------->
-    <div class="header__content-container container">
-        <!------------ T I T L E ---------->
-        <div class="header__title">
-        </div>
-        <!------------ F O R M  ---------->
-        <form class="header__form">
-            <input class="header__form__search-box" type="text" id="search-box" placeholder="Start searching"/>
-            <button class="header__form__btn" type="button" name="button">Search icon here<!---- to do ---></button>
-        </form>
-        <!------------ C O U N T R Y  L I S T ---------->
-        <ul class="header__list" id="country-list">
-            Choose country  
-        </ul>
-    </div>
+    <!------------ F O R M  ---------->
+    <form class="header__form">
+      <input
+        class="header__form__search-box"
+        type="text"
+        id="search-box"
+        placeholder="Start searching"
+      />
+      <button class="header__form__btn" type="button" name="button">
+        <svg class="search-icon" width="12" height="12">
+          <use href="./images/icons.svg#search-icon"></use>
+        </svg>
+      </button>
+    </form>
+    <!------------ C O U N T R Y  L I S T ---------->
+    <ul class="header__list" id="country-list">
+      <p class="header__list-text">Choose country</p>
+    </ul>
+  </div>
 </header>
