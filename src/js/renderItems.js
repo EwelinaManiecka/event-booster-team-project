@@ -1,5 +1,5 @@
 const rednerItems = (items, id) => {
-  markup = items
+  const markup = items
     .map(({ imageURL, name, place, date }) => {
       return `<li>
                 <div>
