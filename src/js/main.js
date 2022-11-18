@@ -6,12 +6,15 @@ import rednerItems from './renderItems';
 let actualPage = 1;
 let totalItems = 0;
 let itemsPerPage = 0;
-let buttonHolderID = 'gallery-pagination';
-let itemHolderID = 'gallery-list';
 let pagination = null;
 let itemsOnPage = null;
 let currentName = 'utah';
 let currentCountry = null;
+
+const buttonHolderID = 'gallery-pagination';
+const itemHolderID = 'gallery-list';
+
+const form = document.querySelector('#search-box');
 
 const startFetching = isNew => {
   fetchEvents(currentName, actualPage, currentCountry)
@@ -33,7 +36,6 @@ const startFetching = isNew => {
         });
         pagination.handler.on('afterMove', function (eventData) {
           actualPage = eventData.page;
-          console.log(actualPage);
           startFetching(false);
         });
       }
@@ -41,3 +43,10 @@ const startFetching = isNew => {
 };
 
 startFetching(true);
+
+form.addEventListener('input', e => {
+  document.getElementById(itemHolderID).innerHTML="TUTAJ BĘDZIE SPINER"
+  currentName = e.target.value;
+  actualPage = 1;
+  startFetching(true);
+});
