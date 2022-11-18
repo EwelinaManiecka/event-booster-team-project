@@ -14,7 +14,6 @@ const mapItems = items => {
     place: item._embedded.venues[0].name,
     map: `https://www.google.pl/maps/@${item._embedded.venues[0].location.latitude},${item._embedded.venues[0].location.longitude},14z`,
   }));
-  console.log(result);
   return result;
 };
 
