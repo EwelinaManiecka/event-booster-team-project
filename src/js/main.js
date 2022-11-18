@@ -14,10 +14,12 @@ let itemsOnPage = null;
 fetchEvents().then(({ events, pageInfo }) => {
   itemsOnPage = mapItems(events);
   rednerItems(itemsOnPage, itemHolderID);
+  const { number, totalElemnts, size } = pageInfo;
 
-  actualPage = pageInfo.number;
-  totalItems = pageInfo.totalElements;
-  itemsPerPage = pageInfo.size;
+  actualPage = number;
+  totalItems = totalElemnts;
+  itemsPerPage = size;
+
   pagination = new Pagination(totalItems, itemsPerPage, buttonHolderID);
   pagination.create();
 });
