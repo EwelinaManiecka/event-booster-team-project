@@ -45,6 +45,13 @@ li {
   text-decoration: none;
 }
 
+.container {
+  min-width: 320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 25px;
+}
+
 @media screen and (min-width: 320px) {
   .container {
     max-width: 767px;
@@ -53,11 +60,43 @@ li {
 @media screen and (min-width: 768px) {
   .container {
     max-width: 1279px;
+    padding: 0 85px;
   }
 }
 @media screen and (min-width: 1280px) {
   .container {
     max-width: 1280px;
+    padding: 0 175px;
+  }
+}
+.background {
+  background-image: url("../images/bg-mobile@1x.png");
+  background-size: contain;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .background {
+    background-image: url("../images/bg-tablet@1x.png");
+  }
+}
+@media screen and (min-width: 1280px) {
+  .background {
+    background-image: url("../images/bg-desktop@1x.png");
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 480px) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 480px) and (max-width: 767px), screen and (min-resolution: 192dpi) and (min-width: 480px) and (max-width: 767px), screen and (min-resolution: 2dppx) and (min-width: 480px) and (max-width: 767px) {
+  .background {
+    background-image: url("../images/bg-mobile@2x.png");
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1279px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1279px), screen and (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1279px), screen and (min-resolution: 2dppx) and (min-width: 768px) and (max-width: 1279px) {
+  .background {
+    background-image: url("../images/bg-tablet@2x.png");
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+  .background {
+    background-image: url("../images/bg-desktop@2x.png");
   }
 }
 :root {
@@ -214,7 +253,7 @@ li {
 }
 @media screen and (min-width: 1280px) {
   .header__background {
-    height: 446px;
+    min-height: 446px;
     background-image: url("../images/pic-desktop.png");
   }
   .header__logo-picture {
@@ -252,6 +291,10 @@ li {
     top: 214px;
   }
 }
+.modal {
+  display: none;
+}
+
 .tui-pagination {
   background-color: black;
   font-family: "Montserrat", sans-serif;

@@ -145,7 +145,7 @@
 
 @media screen and (min-width: 1280px) {
   .header__background {
-    height: 446px;
+    min-height: 446px;
     background-image: url('../images/pic-desktop.png');
   }
   .header__logo-picture {
