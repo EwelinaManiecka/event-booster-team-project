@@ -1,10 +1,13 @@
-const undefGeo = { venues: [{ name: '' }] };
+const undefGeo = { venues: [{ name: '' }], isReal:false };
+const IMG_WIDTH = 1024;
+const IMG_HEIGHT = 576;
 
 const mapItems = items => {
   const withGeoData = items
     .filter(item => item._embedded)
     .map(item => ({
       name: item.name,
+      images: item.images,
       imageURL: item.images[1].url,
       id: item.id,
       date: item.dates.start.localDate,
@@ -20,6 +23,7 @@ const mapItems = items => {
     .filter(item => !item._embedded)
     .map(item => ({
       name: item.name,
+      images: item.images,
       imageURL: item.images[1].url,
       id: item.id,
       date: item.dates.start.localDate,
@@ -33,7 +37,16 @@ const mapItems = items => {
 
   const result = withGeoData.concat(whitOutGeoData);
 
-  console.log(result);
+  let findBestImg = result.map(item =>
+    item.images
+      .filter(image => image.width === IMG_WIDTH && image.height === IMG_HEIGHT)
+      .map(image => image.url)
+  );
+
+  for (i = 0; i < result.length; i++) {
+    result[i].imageURL = findBestImg[i][0];
+  }
+
   return result;
 };
 
