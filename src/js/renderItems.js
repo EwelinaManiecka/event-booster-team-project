@@ -4,9 +4,9 @@ const rednerItems = (items, id) => {
       return `<li>
                 <div>
                   <img src="${imageURL}" width="260" height="400"></img>
-                  <span>${name}</span?>
-                  <span>${date}</span?>
-                  <span>${geo.venues[0].name}</span?>
+                  <p>${name}</p>
+                  <p>${date}</p>
+                  <p>${geo.venues[0].name}</p>
                 </div>
               </li>`;
     })

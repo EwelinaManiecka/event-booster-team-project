@@ -45,3 +45,10 @@
 .gallery__list li {
   flex-basis: calc((100% - 45px) / 4);
 }
+
+.gallery__list li div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

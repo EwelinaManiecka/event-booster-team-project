@@ -43,6 +43,9 @@ const startFetching = isNew => {
     });
 };
 
+document.getElementById(
+  itemHolderID
+).innerHTML = `<div class="spinner"><div class="loading loading--full-height"></div></div>`;
 startFetching(true);
 
 formInput.addEventListener(
@@ -50,7 +53,7 @@ formInput.addEventListener(
   _debounce(e => {
     document.getElementById(
       itemHolderID
-    ).innerHTML = `<div class="spinner"><div class="loading loading--full-height"></div></div>`;
+    ).innerHTML = `<div class="spinner" ><div class="loading loading--full-height"></div></div>`;
     document.getElementById(buttonHolderID).innerHTML = '';
     currentName = e.target.value;
     actualPage = 0;
