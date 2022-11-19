@@ -7,13 +7,15 @@ const fetchEvents = async (name, page, country) => {
     const responde = await axios(
       `https://app.ticketmaster.com/discovery/v2/events.json?keyword=` +
         name +
+        `&page=` +
+        page +
         `&apikey=` +
         API_KEY
     );
-    return ({
+    return {
       events: responde.data._embedded.events,
       pageInfo: responde.data.page,
-    })
+    };
   } catch (error) {
     console.log(error.message);
   }

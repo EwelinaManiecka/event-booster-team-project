@@ -5,10 +5,18 @@
   background-color: black;
   font-family: 'Montserrat', sans-serif;
   height: 30px;
-  margin: 14px 0 12px;
+  padding-top: 60px;
   line-height: normal;
   text-align: center;
   font-size: 0;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 80px;
+  }
 }
 
 .tui-pagination .tui-page-btn {
@@ -27,23 +35,23 @@
 }
 
 .tui-pagination .tui-page-btn:hover {
-  color: #DC56C5;
+  color: #dc56c5;
 }
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-  color: #DC56C5;
+  color: #dc56c5;
   background: transparent;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  border: 2px solid #DC56C5;
+  border: 2px solid #dc56c5;
   cursor: default;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tui-pagination .tui-is-selected:hover {
-  background-color: #DC56C5;
+  background-color: #dc56c5;
   color: #ffffff;
 }
 
@@ -64,35 +72,35 @@
 .tui-pagination .tui-ico-next:hover,
 .tui-pagination .tui-ico-last:hover,
 .tui-pagination .tui-ico-ellip:hover {
-  color: #DC56C5;
+  color: #dc56c5;
 }
 
 .tui-pagination .tui-ico-first::after {
   font-family: 'Titan One', cursive;
-  content: "<<";
+  content: '<<';
   font-size: 15px;
 }
 
 .tui-pagination .tui-ico-prev::after {
   font-family: 'Titan One', cursive;
-  content: "<";
+  content: '<';
   font-size: 15px;
 }
 
 .tui-pagination .tui-ico-next::after {
   font-family: 'Titan One', cursive;
-  content: ">";
+  content: '>';
   font-size: 15px;
 }
 
 .tui-pagination .tui-ico-last::after {
   font-family: 'Titan One', cursive;
-  content: ">>";
+  content: '>>';
   font-size: 15px;
 }
 
 .tui-pagination .tui-ico-ellip::after {
-  content: "...";
+  content: '...';
   font-size: 15px;
 }
 
