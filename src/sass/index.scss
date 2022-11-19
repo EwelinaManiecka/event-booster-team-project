@@ -1,11 +1,12 @@
 @import './base/common';
 @import './base/container';
 @import './base/background';
-
+@import './modal';
 @import './utils/variables';
 
 @import './header';
 @import './gallery';
-@import './modal';
- 
+
+@import './footer';
 @import './pagination';
+
