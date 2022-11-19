@@ -1,6 +1,7 @@
 @import './base/common';
 @import './base/container';
-
+@import './base/background';
+@import './modal';
 @import './utils/variables';
 
 @import './header';
@@ -8,6 +9,7 @@
 @import './spinner.scss';
  
 @import './gallery';
-@import './footer';
 
+@import './footer';
 @import './pagination';
+

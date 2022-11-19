@@ -1,0 +1,40 @@
+.background {
+    background-image: url('../images/bg-mobile@1x.png'); 
+    background-size: contain;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .background {
+        background-image: url('../images/bg-tablet@1x.png'); 
+    }   
+}
+
+@media screen and (min-width: 1280px) {
+    .background {
+        background-image: url('../images/bg-desktop@1x.png'); 
+    }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 480px) and (max-width: 767px),
+  screen and (min-resolution: 192dpi) and (min-width: 480px) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (min-width: 480px) and (max-width: 767px) {
+    .background {
+        background-image: url('../images/bg-mobile@2x.png');
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1279px),
+  screen and (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1279px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) and (max-width: 1279px) {
+    .background {
+        background-image: url('../images/bg-tablet@2x.png');
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  screen and (min-resolution: 192dpi) and (min-width: 1280px),
+  screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+    .background {
+        background-image: url('../images/bg-desktop@2x.png');
+  }
+}
