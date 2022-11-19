@@ -1,4 +1,4 @@
-const undefGeo = { venues: [{ name: '' }], isReal:false };
+const undefGeo = { venues: [{ name: '' }], isReal: false };
 const IMG_WIDTH = 1024;
 const IMG_HEIGHT = 576;
 
@@ -43,7 +43,7 @@ const mapItems = items => {
       .map(image => image.url)
   );
 
-  for (i = 0; i < result.length; i++) {
+  for (let i = 0; i < result.length; i++) {
     result[i].imageURL = findBestImg[i][0];
   }
 
