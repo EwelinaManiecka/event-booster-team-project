@@ -7,43 +7,19 @@
     <!------------ L O G O ---------->
     <div class="overlay">
       <div class="header__logo">
-        <a href="./index.html">
-          <picture class="header__logo-picture">
-            <source
-              srcset="
-                ./images/logo-mobile.png    1x,
-                ./images/logo-mobile@2x.png 2x
-              "
-              media="(min-width: 320px) and (max-width: 767px)" />
-            <source
-              srcset="
-                ./images/logo-tablet.png    1x,
-                ./images/logo-tablet@2x.png 2x
-              "
-              media="(min-width: 768px) and (max-width: 1279px)" />
-            <source
-              srcset="
-                ./images/logo-desktop.png    1x,
-                ./images/logo-desktop@2x.png 2x
-              "
-              media="(min-width: 1280px)" />
-            <img
-              src="images/logo-mobile.png"
-              alt="main logo"
-              class="header__logo-picture"
-          /></picture>
-        </a>
+        <a href="./index.html"></a>
       </div>
 
       <!------------ H E A D I N G ---------->
       <div class="header__content-container">
         <!------------ T I T L E ---------->
         <div class="header__title">
-          <div class="header__title-first">FIND BEST EVENTS</div>
-          <div class="header__title-second">AROUND THE WORLD</div>
+          <p class="header__title-first">FIND BEST EVENTS</p>
+          <p class="header__title-second">AROUND THE WORLD</p>
         </div>
         <!------------ F O R M  ---------->
-        <form class="header__form">
+        <div class="header__search">
+          <form class="header__form">
           <input
             class="header__form__search-box"
             type="text"
@@ -51,9 +27,6 @@
             placeholder="Start searching"
           />
           <button class="header__form__btn" type="button" name="button">
-            <svg class="search-icon" width="12" height="12">
-              <use href="./images/icons.svg#search-icon"></use>
-            </svg>
           </button>
             
           <!------------ C O U N T R Y  L I S T ---------->
@@ -166,7 +139,7 @@
 
             <option value="VE">Venezuela</option>
           </select>
-        </form>
+        </form></div>
       </div>
     </div>
   </div>
