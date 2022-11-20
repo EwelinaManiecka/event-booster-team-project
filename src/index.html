@@ -21,12 +21,14 @@
     />
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
-  <body class="background gradient">
+  <body>
+    <div class="background">
     <!-- W taki sposb dodajemy fragmenty w główny HTML-plik strony. -->
-    <include src="./partials/header.html"></include>
-    <include src="./partials/gallery.html"></include>
-    <include src="./partials/footer.html"></include>
-    <include src="./partials/modal.html"></include>
+      <include src="./partials/header.html"></include>
+      <include src="./partials/gallery.html"></include>
+      <include src="./partials/footer.html"></include>
+      <include src="./partials/modal.html"></include>
+    </div>
     <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
     <script src="./index.js" type="module"></script>
   </body>

@@ -10,17 +10,9 @@
   position: relative;
 }
 
-.gradient {
-  background: linear-gradient(
-    180deg,
-    rgba(13, 13, 13, 0.19) 0%,
-    rgba(14, 14, 14, 0.8) 100%
-  );
-}
-
 .header__background {
   height: 364px;
-  background-image: url('../images/pic-mobile.png');
+  background-image: url('../images/header-banner-mobile@1x.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -121,7 +113,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .header__background {
-    background-image: url('../images/pic-tablet.png');
+    background-image: url('../images/header-banner-tablet@1x.png');
   }
   .header__logo-picture {
     width: 191px;
@@ -166,7 +158,7 @@
 @media screen and (min-width: 1280px) {
   .header__background {
     min-height: 446px;
-    background-image: url('../images/pic-desktop.png');
+    background-image: url('../images/header-banner-desktop@1x.png');
   }
   .header__logo-picture {
     width: 239px;
@@ -207,5 +199,29 @@
   .header__list {
     left: 655px;
     top: 214px;
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 480px) and (max-width: 767px),
+  screen and (min-resolution: 192dpi) and (min-width: 480px) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (min-width: 480px) and (max-width: 767px) {
+  .header__background {
+    background-image: url('../images/header-banner-mobile@2x.png');
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1279px),
+  screen and (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1279px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) and (max-width: 1279px) {
+  .header__background {
+    background-image: url('../images/header-banner-tablet@2x.png');
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  screen and (min-resolution: 192dpi) and (min-width: 1280px),
+  screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+  .header__background {
+    background-image: url('../images/header-banner-desktop@2x.png');
   }
 }
