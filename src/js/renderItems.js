@@ -3,7 +3,7 @@ const rednerItems = (items, id) => {
     .map(({ imageURL, name, geo, date, id }) => {
       return `<li>
                 <div>
-                  <img id=${id} src="${imageURL}" width="260" height="400"></img>
+                  <img id=${id} src="${imageURL}" width="180" height="227"></img>
                   <p>${name}</p>
                   <p>${date}</p>
                   <p>${geo.venues[0].name}</p>
