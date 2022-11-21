@@ -72,7 +72,7 @@
 }
 
 input::placeholder {
-  color: #b7b7b4;
+  color: #f2f2ef;
 }
 
 .header__form__btn {
@@ -308,17 +308,16 @@ input::placeholder {
 }
 
 .select-menu .options::-webkit-scrollbar {
-  width: 10px;              /* width of the entire scrollbar */
+  width: 10px; /* width of the entire scrollbar */
 }
 
 .select-menu .options::-webkit-scrollbar-track {
   background: #4e2248;
-  border-radius: 20px;        /* color of the tracking area */
+  border-radius: 20px; /* color of the tracking area */
 }
 
 .select-menu .options::-webkit-scrollbar-thumb {
-  background-color: #b838a4;    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 1px solid black;  /* creates padding around scroll thumb */
+  background-color: #b838a4; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 1px solid black; /* creates padding around scroll thumb */
 }
-
