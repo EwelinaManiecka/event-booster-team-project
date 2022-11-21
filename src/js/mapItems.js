@@ -1,43 +1,39 @@
-const undefGeo = { venues: [{ name: '' }], isReal: false };
+const undefGeo = { venues: [{ name: 'No info' }], isReal: false };
 const IMG_WIDTH = 1024;
-const IMG_HEIGHT = 576;
+const IMG_HEIGHT = 683;
 
 const mapItems = items => {
-  const withGeoData = items
-    .filter(item => item._embedded)
-    .map(item => ({
-      name: item.name,
-      images: item.images,
-      imageURL: item.images[1].url,
-      id: item.id,
-      date: item.dates.start.localDate,
-      time: item.dates.start.localTime,
-      timeZone: item.dates.timezone,
-      price: item.priceRanges,
-      ticketSite: item.url,
-      info: item.info,
-      geo: item._embedded,
-    }));
+  const mapedItems = items.map(item => {
+    let newObject = {};
+    item.name ? (newObject.name = item.name) : (newObject.name = '');
+    item.images ? (newObject.images = item.images) : (newObject.name = '');
+    item.imageURL = item.images[0].url;
+    item.id ? (newObject.id = item.id) : (newObject.id = '');
+    item.dates.start.localDate
+      ? (newObject.date = item.dates.start.localDate)
+      : (newObject.date = ' ');
+    item.dates.start.localTime
+      ? (newObject.time = item.dates.start.localTime)
+      : (newObject.time = '');
+    item.dates.timezone
+      ? (newObject.timeZone = item.dates.timezone)
+      : (newObject.timeZone = '');
+    item.priceRanges
+      ? (newObject.price = item.priceRanges)
+      : (newObject.price = '');
+    item.url ? (newObject.ticketSite = item.url) : (newObject.ticketSite = '');
+    item.info ? (newObject.info = item.info) : (newObject.info = '');
+    item._embedded
+      ? (newObject.geo = item._embedded)
+      : (newObject.geo = undefGeo);
 
-  const whitOutGeoData = items
-    .filter(item => !item._embedded)
-    .map(item => ({
-      name: item.name,
-      images: item.images,
-      imageURL: item.images[1].url,
-      id: item.id,
-      date: item.dates.start.localDate,
-      time: item.dates.start.localTime,
-      timeZone: item.dates.timezone,
-      price: item.priceRanges,
-      ticketSite: item.url,
-      info: item.info,
-      geo: undefGeo,
-    }));
+    return newObject;
+  });
 
-  const result = withGeoData.concat(whitOutGeoData);
 
-  console.log(result);
+  const result = mapedItems;
+
+  console.log(result); //TEST OBJECTS
 
   let findBestImg = result.map(item =>
     item.images

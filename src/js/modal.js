@@ -4,9 +4,9 @@ const openModal = item => {
   document.getElementById('modal-when').innerHTML = item.date + item.time;
   item.info
     ? (document.getElementById('modal-info').innerHTML = item.info)
-    : (document.getElementById('modal-info').innerHTML = 'no data');
+    : (document.getElementById('modal-info').innerHTML = '');
 
-  if (!item.geo.isReal) {
+  if (!item.geo.isReal && item.geo.venues) {
     let whereInfo = ' ';
 
     item.geo.venues[0].city.name

@@ -7,7 +7,6 @@ import _debounce from 'lodash.debounce';
 import './chooseCountry';
 import openModal from './modal.js';
 
-
 let actualPage = 0;
 let totalItems = 0;
 let itemsPerPage = 0;
@@ -20,17 +19,37 @@ let currentAuthor = '';
 const buttonHolderID = 'gallery-pagination';
 const itemHolderID = 'gallery-list';
 
+const loader = document.querySelector('.logo-container');
+
 const formInput = document.querySelector('#search-box');
 const formSelect = document.querySelector('#country-list');
 const form = document.querySelector('.header__form');
 
 const backdrop = document.querySelector('.backdrop');
-const modal = document.querySelector('.modal');
 const closeBtn = document.querySelector('#closeBtn');
 const authorBtn = document.querySelector('#authorBtn');
 
+const iconFront = document.querySelector('.icon-front');
+
+iconFront.style = 'width: 10%';
+
+let percent = 0;
+
+const loading = setInterval(() => {
+  percent += 1;
+  iconFront.style = `width: ${percent}%`;
+  if (percent >= 100) {
+    clearInterval(loading);
+    loader.classList.add('isHidden');
+    document.querySelector('.logo-wrapper').classList.remove('black');
+    loader.classList.add('semi-black');
+    loader.innerHTML = `<div class="spinner"><div class="loading loading--full-height"></div></div>`;
+  }
+}, 15);
+
 const startFetching = isNew => {
-  fetchEvents(currentName, actualPage, currentCountry, itemHolderID)
+  loader.classList.remove('isHidden');
+  fetchEvents(currentName, actualPage, currentCountry, itemHolderID, loader)
     .then(({ events, pageInfo }) => {
       itemsOnPage = mapItems(events);
       rednerItems(itemsOnPage, itemHolderID);
@@ -38,6 +57,7 @@ const startFetching = isNew => {
       actualPage = number;
       totalElements > 5000 ? (totalItems = 5000) : (totalItems = totalElements);
       itemsPerPage = size;
+      percent >= 100 ? loader.classList.add('isHidden') : '';
     })
     .then(() => {
       if (isNew) {
@@ -54,9 +74,6 @@ const startFetching = isNew => {
     });
 };
 
-document.getElementById(
-  itemHolderID
-).innerHTML = `<div class="spinner"><div class="loading loading--full-height"></div></div>`;
 startFetching(true);
 
 form.addEventListener('submit', e => e.preventDefault());
@@ -64,9 +81,7 @@ form.addEventListener('submit', e => e.preventDefault());
 formInput.addEventListener(
   'input',
   _debounce(e => {
-    document.getElementById(
-      itemHolderID
-    ).innerHTML = `<div class="spinner" ><div class="loading loading--full-height"></div></div>`;
+    loader.classList.toggle('isHidden');
     document.getElementById(buttonHolderID).innerHTML = '';
     currentName = e.target.value;
     actualPage = 0;
@@ -75,9 +90,7 @@ formInput.addEventListener(
 );
 
 formSelect.addEventListener('change', e => {
-  document.getElementById(
-    itemHolderID
-  ).innerHTML = `<div class="spinner" ><div class="loading loading--full-height"></div></div>`;
+  loader.classList.toggle('isHidden');
   document.getElementById(buttonHolderID).innerHTML = '';
   currentCountry = e.target.value;
   actualPage = 0;
@@ -85,7 +98,7 @@ formSelect.addEventListener('change', e => {
 });
 
 document.getElementById(itemHolderID).addEventListener('click', e => {
-  if (e.target.nodeName === 'IMG') {
+  if (e.target.classList.contains('gallery__item')) {
     let currentItem = itemsOnPage.filter(item => item.id === e.target.id);
     currentItem = currentItem[0];
     backdrop.classList.toggle('isHidden');
