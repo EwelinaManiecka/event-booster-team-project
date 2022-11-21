@@ -3,6 +3,7 @@ import fetchEvents from './fetchEvents';
 import mapItems from './mapItems';
 import rednerItems from './renderItems';
 import _debounce from 'lodash.debounce';
+import openModal from './modal.js';
 
 let actualPage = 0;
 let totalItems = 0;
@@ -11,6 +12,7 @@ let pagination = null;
 let itemsOnPage = null;
 let currentName = '';
 let currentCountry = '';
+let currentAuthor = '';
 
 const buttonHolderID = 'gallery-pagination';
 const itemHolderID = 'gallery-list';
@@ -18,6 +20,11 @@ const itemHolderID = 'gallery-list';
 const formInput = document.querySelector('#search-box');
 const formSelect = document.querySelector('#country-list');
 const form = document.querySelector('.header__form');
+
+const backdrop = document.querySelector('.backdrop');
+const modal = document.querySelector('.modal');
+const closeBtn = document.querySelector('#closeBtn');
+const authorBtn = document.querySelector('#authorBtn');
 
 const startFetching = isNew => {
   fetchEvents(currentName, actualPage, currentCountry, itemHolderID)
@@ -74,18 +81,32 @@ formSelect.addEventListener('change', e => {
   startFetching(true);
 });
 
-///TO MODAL
-
 document.getElementById(itemHolderID).addEventListener('click', e => {
   if (e.target.nodeName === 'IMG') {
     let currentItem = itemsOnPage.filter(item => item.id === e.target.id);
     currentItem = currentItem[0];
-    console.log(currentItem);
+    backdrop.classList.toggle('isHidden');
+    openModal(currentItem);
+    currentAuthor = currentItem.name;
   }
 });
 
-//---------------------------------
-//country: geo._embedded.venues[0].country.name,
-// city: geo._embedded.venues[0].city.name,
-// place: geo._embedded.venues[0].name,
-// map: `https://www.google.pl/maps/@${item._embedded.venues[0].location.latitude},${item._embedded.venues[0].location.longitude},14z`,
+backdrop.addEventListener('click', e => {
+  if (e.target.classList.contains('backdrop')) {
+    backdrop.classList.toggle('isHidden');
+  }
+});
+
+closeBtn.addEventListener('click', e => {
+  backdrop.classList.toggle('isHidden');
+});
+
+authorBtn.addEventListener('click', e => {
+  backdrop.classList.toggle('isHidden');
+  currentName = currentAuthor;
+  document.getElementById(buttonHolderID).innerHTML = '';
+  actualPage = 0;
+  startFetching(true);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  formInput.value = currentName;
+});
