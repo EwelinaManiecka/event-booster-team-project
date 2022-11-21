@@ -37,6 +37,8 @@ const mapItems = items => {
 
   const result = withGeoData.concat(whitOutGeoData);
 
+  console.log(result);
+
   let findBestImg = result.map(item =>
     item.images
       .filter(image => image.width === IMG_WIDTH && image.height === IMG_HEIGHT)
@@ -51,8 +53,3 @@ const mapItems = items => {
 };
 
 export default mapItems;
-
-//country: item._embedded.venues[0].country.name,
-// city: item._embedded.venues[0].city.name,
-// place: item._embedded.venues[0].name,
-// map: `https://www.google.pl/maps/@${item._embedded.venues[0].location.latitude},${item._embedded.venues[0].location.longitude},14z`,

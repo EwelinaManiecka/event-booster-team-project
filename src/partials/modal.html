@@ -1,46 +1,23 @@
-<section class="modal">
-    <!------------ C O N T A I N E R ---------->
-    <div class="modal__container">
-        <!------------ T O P ---------->
-        <div class="modal__top">
-            <img class="modal_image-min"/>
-            <svg class="modal__close_btn"></svg>
-        </div>
-        <!------------ M I D  ---------->
-        <div class="modal__mid">
-            <!------------ D E T A I L S ---------->
-            <div class="modal__details">
-                <!------------ I N F O ---------->
-                <h1 class="modal__title" id="modal-info">INFO</h1>
-                <p class="modal__post"id="modal-post-info">Info placeholder</p>
-                <!------------ W H E N ---------->
-                <h1 class="modal__title" id="modal-when">WHEN</h1>
-                <p class="modal__post" id="modal-post-when">When placeholder</p>
-                <!------------ W H E R E ---------->
-                <h1 class="modal__title" id="modal-where">WHERE</h1>
-                <p class="modal__post" id="modal-post-where">Where placeholder</p>
-                <!------------ W H O ---------->
-                <h1 class="modal__title" id="modal-who">WHO</h1>
-                <p class="modal__post" id="modal-post-who">Who placeholder</p>
-                <!------------ P R I C E S ---------->
-                <h1 class="modal__title" id="modal-prices">WHO</h1>
-                <!------------ P R I C E S  S T A N D A R T ---------->
-                <div class="modal__standart-prices-container">
-                    <svg class="modal__barcode">Barcode placeholder</svg>
-                    <p class="modal__post" id="modal-standart-prices">Standart price placeholder</p>
+<div class="backdrop isHidden">
+    <div class="modal">
+        <button type="button" id="closeBtn">X</button>
+
+        <div class="modal-wrapper">
+            <div>
+                <div class="modal__image-container">
+                    <img id="modal-image" class="modal-image" src="#" alt="">
                 </div>
-                <button class="modal__buy-btn" id="modal-buy-standart">BUY TICKETS</button>
-                <!------------ P R I C E S  V I P ---------->
-                <div class="modal__vip-prices-container">
-                    <svg class="modal__barcode">Barcode placeholder</svg>
-                    <p class="modal__post" id="modal-vip-prices">Vip price placeholder</p>
-                </div>
-                <button class="modal__buy-btn" id="modal-buy-vip">BUY TICKETS</button>
+                <button type="button" id="authorBtn">MORE FROM THIS AUTHOR</button>
+            </div>
+
+            <div class="modal-data">
+                <p id="modal-who"></p>
+                <p id="modal-when"></p>
+                <p id="modal-where"></p>
+                <p id="modal-info"></p>
+                <p id="modal-price"></p>
             </div>
         </div>
-        <!------------ B O T ---------->
-        <div class="modal__bot">
-            <button class="modal__more-btn">MORE FROM THIS AUTHOR</button>
-        </div>
+
     </div>
-</section>
+</div>
