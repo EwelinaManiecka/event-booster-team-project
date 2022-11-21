@@ -99,9 +99,41 @@ li {
   }
 }
 .modal {
-  display: none;
+  display: block;
+  position: fixed;
+  width: 272px;
+  max-width: 100%;
+  height: 915px;
+  max-height: 100%;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-color-modal);
+  border-radius: 150px 0px;
+}
+.modal__guts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 75px 17px 114px 17px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .modal {
+    width: 595px;
+    height: 831px;
+    border-radius: 300px 0px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .modal {
+    width: 930px;
+    height: 1023px;
+    border-radius: 300px 0px;
+  }
+}
 :root {
   --txt-font: "Montserrat";
   --txt-color-pink: #dc56c5;
@@ -110,6 +142,7 @@ li {
   --txt-color-black: #0e0e0e;
   --btn-in-modal: #4c00fe;
   --bg-color-black: #0e0e0e;
+  --bg-color-modal: #FFF2FD;
 }
 
 .overlay {
@@ -189,15 +222,15 @@ li {
 }
 
 input::-moz-placeholder {
-  color: #b7b7b4;
+  color: #f2f2ef;
 }
 
 input:-ms-input-placeholder {
-  color: #b7b7b4;
+  color: #f2f2ef;
 }
 
 input::placeholder {
-  color: #b7b7b4;
+  color: #f2f2ef;
 }
 
 .header__form__btn {
@@ -323,6 +356,135 @@ input::placeholder {
     background-image: url("../images/header-banner-desktop@2x.png");
   }
 }
+.select-menu {
+  max-width: 270px;
+}
+
+.select-menu .select-btn {
+  display: flex;
+  height: 40px;
+  color: #b7b7b4;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border-style: none;
+  padding-left: 30px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.select-menu .options {
+  position: absolute;
+  width: 270px;
+  overflow-y: auto;
+  max-height: 295px;
+  padding: 1px;
+  margin-top: 10px;
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation-name: fadeInDown;
+  -webkit-animation-name: fadeInDown;
+  animation-duration: 0.35s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.35s;
+  -webkit-animation-fill-mode: both;
+}
+
+.select-menu .options .option {
+  display: flex;
+  height: 30px;
+  cursor: pointer;
+  padding: 0 16px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.select-menu .options .option:hover {
+  background: #86397a;
+}
+
+.select-menu .options .option i {
+  font-size: 25px;
+  margin-right: 12px;
+}
+
+.select-menu .options .option .option-text {
+  font-size: 17px;
+  color: #b7b7b4;
+}
+
+.select-menu.active .options {
+  display: block;
+  opacity: 0;
+  z-index: 10;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInDown {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(0, 20px, 0);
+    opacity: 0;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(0, 20px, 0);
+    opacity: 0;
+  }
+}
+.select-menu .options::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+
+.select-menu .options::-webkit-scrollbar-track {
+  background: #4e2248;
+  border-radius: 20px; /* color of the tracking area */
+}
+
+.select-menu .options::-webkit-scrollbar-thumb {
+  background-color: #b838a4; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 1px solid black; /* creates padding around scroll thumb */
+}
+
 .spinner {
   position: absolute;
   top: 50%;
@@ -666,5 +828,19 @@ input::placeholder {
 .tui-pagination .tui-is-disabled .tui-ico-first,
 .tui-pagination .tui-is-disabled .tui-ico-next,
 .tui-pagination .tui-is-disabled .tui-ico-last {
+  display: none;
+}
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.isHidden {
   display: none;
 }/*# sourceMappingURL=index.css.map */
