@@ -1,12 +1,12 @@
 const rednerItems = (items, id) => {
   const markup = items
     .map(({ imageURL, name, geo, date, id }) => {
-      return `<li>
-                <div>
-                  <img id=${id} src="${imageURL}" width="180" height="227"></img>
-                  <p>${name}</p>
-                  <p>${date}</p>
-                  <p>${geo.venues[0].name}</p>
+      return `<li class="gallery__item">
+                <div class="gallery__image-container">
+                  <img id=${id} src="${imageURL}" class="gallery__image"></img>
+                  <p class="gallery__item-name">${name}</p>
+                  <p class="gallery__item-date">${date}</p>
+                  <p class="gallery__item-place">${geo.venues[0].name}</p>
                 </div>
               </li>`;
     })
