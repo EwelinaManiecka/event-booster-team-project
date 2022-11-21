@@ -3,7 +3,10 @@ import fetchEvents from './fetchEvents';
 import mapItems from './mapItems';
 import rednerItems from './renderItems';
 import _debounce from 'lodash.debounce';
+
+import './chooseCountry';
 import openModal from './modal.js';
+
 
 let actualPage = 0;
 let totalItems = 0;
