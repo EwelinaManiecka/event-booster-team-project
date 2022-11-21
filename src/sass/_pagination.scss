@@ -2,20 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
 
 .tui-pagination {
-  background-color: black;
   font-family: 'Montserrat', sans-serif;
   height: 30px;
-  padding-top: 60px;
+  padding-top: 50px;
   line-height: normal;
   text-align: center;
   font-size: 0;
 
   @media screen and (min-width: 768px) {
-    padding-top: 60px;
+    padding-top: 40px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding-top: 80px;
+    padding-top: 50px;
   }
 }
 

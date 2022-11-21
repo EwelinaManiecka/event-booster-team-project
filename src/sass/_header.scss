@@ -1,13 +1,13 @@
 .overlay {
   background-color: #0b0b0b80;
   width: 100%;
-  height: 100%;
+  height: 90%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 2;
-  position: relative;
+  position: absolute;
 }
 
 .header__background {
@@ -84,13 +84,10 @@ input::placeholder {
 
 .search-icon {
   position: absolute;
-  left: 82.81%;
-  right: 13.44%;
-  top: 5.11%;
-  bottom: 23%;
   width: 12px;
   height: 12px;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+  top: 15px;
+  left: 245px;
 }
 
 .header__list {
@@ -150,10 +147,8 @@ input::placeholder {
   }
 
   .search-icon {
-    right: 54.3%;
-    bottom: 94.33%;
-    top: -4px;
-    left: -372px;
+    top: 15px;
+    left: 245px;
   }
 }
 
@@ -195,10 +190,8 @@ input::placeholder {
   }
 
   .search-icon {
-    left: 46.48%;
-    right: 52.58%;
-    top: 9.6%;
-    bottom: 89.9%;
+    top: 15px;
+    left: 245px;
   }
 }
 
@@ -225,9 +218,6 @@ input::placeholder {
     background-image: url('../images/header-banner-desktop@2x.png');
   }
 }
-
-
-// Choose Country dropdown
 
 .select-menu {
   max-width: 270px;
@@ -331,3 +321,4 @@ input::placeholder {
   border-radius: 20px;       /* roundness of the scroll thumb */
   border: 1px solid black;  /* creates padding around scroll thumb */
 }
+
