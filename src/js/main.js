@@ -127,8 +127,8 @@ authorBtn.addEventListener('click', e => {
   formInput.value = currentName;
 });
 
-//////
 const list = document.querySelector('#country-list');
+
 
 list.addEventListener('click', e => {
   if (e.target.nodeName === 'SPAN') {
@@ -136,4 +136,13 @@ list.addEventListener('click', e => {
     startFetching(true);
   }
 });
-//////
+
+const list = document.querySelector('#option-list');
+
+list.addEventListener('click', e => {
+  if (e.target.nodeName === 'SPAN') {
+    currentCountry = e.target.getAttribute('value');
+    startFetching(true);
+  }
+});
+
