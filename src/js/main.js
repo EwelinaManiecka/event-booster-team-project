@@ -24,15 +24,12 @@ const loader = document.querySelector('.logo-container');
 const formInput = document.querySelector('#search-box');
 const formSelect = document.querySelector('#country-list');
 const form = document.querySelector('.header__form');
-
+const countryList = document.querySelector('#country-list');
 const backdrop = document.querySelector('.backdrop');
 const closeBtn = document.querySelector('#closeBtn');
 const authorBtn = document.querySelector('#authorBtn');
 
 const iconFront = document.querySelector('.icon-front');
-
-iconFront.style = 'width: 10%';
-
 let percent = 0;
 
 const loading = setInterval(() => {
@@ -89,12 +86,11 @@ formInput.addEventListener(
   }, 700)
 );
 
-formSelect.addEventListener('change', e => {
-  loader.classList.toggle('isHidden');
-  document.getElementById(buttonHolderID).innerHTML = '';
-  currentCountry = e.target.value;
-  actualPage = 0;
-  startFetching(true);
+countryList.addEventListener('click', e => {
+  if (e.target.nodeName === 'LI') {
+    currentCountry = e.target.getAttribute('value');
+    startFetching(true);
+  }
 });
 
 document.getElementById(itemHolderID).addEventListener('click', e => {
@@ -126,15 +122,3 @@ authorBtn.addEventListener('click', e => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   formInput.value = currentName;
 });
-
-const list = document.querySelector('#country-list');
-
-
-list.addEventListener('click', e => {
-  if (e.target.nodeName === 'SPAN') {
-    currentCountry = e.target.getAttribute('value');
-    startFetching(true);
-  }
-});
-
-
