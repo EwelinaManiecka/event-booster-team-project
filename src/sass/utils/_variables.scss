@@ -1,10 +1,13 @@
 :root {
   --txt-font: 'Montserrat';
-  --txt-color-pink: #dc56c5; //header, card
+  --txt-color-pink: #dc56c5; //header, card, modal
   --txt-color-white: #fff; //card
   --txt-color-grey: #939393; //search field, footer
-  --txt-color-black: #0e0e0e; //modal
-  --btn-in-modal: #4c00fe;
+  --txt-color-black: #0e0e0e;
+  --txt-color-blue: #4c00fe; //modal
+  --btn-in-modal: #4c00fe; //more modal btn
+  --btn-close-modal-fill: #DC56C5; //modal close btn 
+  --btn-close-modal-hover: #4C00FE; //modal close btn
   --bg-color-black: #0e0e0e; //background
   --bg-color-modal: #FFF2FD; //modal background
 }
