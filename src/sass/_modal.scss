@@ -1,11 +1,11 @@
 .modal {
-   
+
   &__content {
     background-color: var(--bg-color-modal);
     max-width: 272px;
-    max-height: 915px;
+    height: max-content;
+    overflow: auto;
     border-radius: 150px 0px;  
-    margin: auto;  
     padding: 75px 17px 114px 17px;
   }
 
@@ -63,14 +63,30 @@
   }
 
   &__prices-container {
-    display: flex;
+    text-transform: capitalize;
     margin-top: 5px;
   }
+
+  &__price-range{
+    padding-left: 40px;
+    position: relative;
+
+    &::before{
+      content: url(./../images/ticket.svg);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 28px;
+      height: 100%;
+    }
+  }
+
 
   &__barcode {
     width: 24px;
     height: 16px;
     margin-right: 13px;
+    fill: black;
   }
 
   &__buy-btn {
@@ -81,7 +97,7 @@
     height: 40px;
     border: none;
     cursor: pointer;
-    margin-top: 10px;
+    margin: 10 0 30 0px;
   }
 
   &__bot {
@@ -112,7 +128,7 @@
  
     &__content {
       max-width: 595px;
-      max-height: 831px;
+      max-height: max-content;
       border-radius: 300px 0px;
       padding: 28px 17px 114px 50px;
     }
@@ -155,7 +171,7 @@
     &__content {
       padding: 62px 17px 114px 50px;
       max-width: 930px;
-      max-height: 1023px;
+      max-height: max-content;
       border-radius: 300px 0px;  
     }
 

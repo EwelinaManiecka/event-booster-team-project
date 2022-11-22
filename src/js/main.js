@@ -101,16 +101,21 @@ document.getElementById(itemHolderID).addEventListener('click', e => {
     let currentItem = itemsOnPage.filter(item => item.id === e.target.id);
     currentItem = currentItem[0];
     backdrop.classList.toggle('isHidden');
+    document.body.style.overflow = 'hidden';
     openModal(currentItem);
     currentAuthor = currentItem.name;
+    document.body.setAttribute('overflow-x', 'hidden');
   }
 });
 
 backdrop.addEventListener('click', e => {
   if (e.target.classList.contains('backdrop')) {
     backdrop.classList.toggle('isHidden');
+    document.body.style.overflow = '';
   }
 });
+
+console.log(document.body);
 
 closeBtn.addEventListener('click', e => {
   backdrop.classList.toggle('isHidden');
