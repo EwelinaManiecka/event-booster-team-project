@@ -239,6 +239,7 @@ input::placeholder {
 }
 
 .select-menu .options {
+  display: none;
   position: absolute;
   width: 270px;
   overflow-y: auto;
