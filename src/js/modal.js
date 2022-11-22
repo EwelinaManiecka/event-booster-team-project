@@ -1,7 +1,9 @@
 const openModal = item => {
   document.getElementById('modal-image').src = item.imageURL;
+  document.getElementById('modal-image-min').src = item.imageURL;
   document.getElementById('modal-who').innerHTML = item.name;
-  document.getElementById('modal-when').innerHTML = item.date + item.time;
+  document.getElementById('modal-when').innerHTML =
+    item.date + '<br>' + item.time.slice(0, -3) + ` (${item.timeZone})`;
   document.getElementById('modal-info').innerHTML = item.info;
 
   if (item.geo && item.geo.venues) {
@@ -11,9 +13,11 @@ const openModal = item => {
       ? (whereInfo += item.geo.venues[0].city.name)
       : '';
     item.geo.venues[0].country.name
-      ? (whereInfo += item.geo.venues[0].country.name)
+      ? (whereInfo += ', ' + item.geo.venues[0].country.name)
       : '';
-    item.geo.venues[0].name ? (whereInfo += item.geo.venues[0].name) : '';
+    item.geo.venues[0].name
+      ? (whereInfo += '<br>' + item.geo.venues[0].name)
+      : '';
 
     item.geo.venues[0].country.name
       ? (whereInfo += item.geo.venues[0].country.name)
@@ -34,9 +38,9 @@ const openModal = item => {
           priceRanges = `${element.min}-${element.max}`;
         }
         return `
-        <p>${element.type} ${priceRanges} ${element.currency}</p>
+        <p class="modal__price-range">${element.type} ${priceRanges} ${element.currency}</p>
         <a href=${item.ticketSite}>
-          <button>BUY TICKETS</button>
+          <button class="modal__buy-btn">BUY TICKETS</button>
         </a>
         `;
       })
@@ -44,11 +48,10 @@ const openModal = item => {
 
     document.getElementById('modal-price').innerHTML = markup;
   } else {
-    document.getElementById(
-      'modal-price'
-    ).innerHTML = `<a href=${item.ticketSite}>
-          <button>BUY TICKETS</button>
-        </a>`;
+    document.getElementById('modal-price').innerHTML = `<p>Not provided</p>
+                  <a href=${item.ticketSite}>
+                    <button class="modal__buy-btn">BUY TICKETS</button>
+                  </a>`;
   }
 };
 

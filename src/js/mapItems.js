@@ -21,7 +21,9 @@ const mapItems = items => {
       ? (newObject.price = item.priceRanges)
       : (newObject.price = '');
     item.url ? (newObject.ticketSite = item.url) : (newObject.ticketSite = '');
-    item.info ? (newObject.info = item.info) : (newObject.info = '');
+    item.info
+      ? (newObject.info = item.info)
+      : (newObject.info = 'There is no info for this event.');
     item._embedded ? (newObject.geo = item._embedded) : (newObject.geo = null);
 
     return newObject;

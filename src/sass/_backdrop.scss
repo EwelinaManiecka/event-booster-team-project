@@ -3,10 +3,19 @@
     left: 0;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(32, 13, 29, 0.6);
+    backdrop-filter: blur(10px);
     overflow: auto;
+    display: flex;
+    justify-content: center;
+
+    &__wrapper{
+        height: max-content;
+        padding: 30px 0 30px 0;
+    }
+
 }
 
 .isHidden {
