@@ -330,3 +330,7 @@ input::placeholder {
   border-radius: 20px; /* roundness of the scroll thumb */
   border: 1px solid black; /* creates padding around scroll thumb */
 }
+
+.option span{
+  pointer-events: none;
+}
