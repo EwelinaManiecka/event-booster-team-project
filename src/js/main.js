@@ -126,3 +126,14 @@ authorBtn.addEventListener('click', e => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   formInput.value = currentName;
 });
+
+//////
+const list = document.querySelector('#country-list');
+
+list.addEventListener('click', e => {
+  if (e.target.nodeName === 'SPAN') {
+    currentCountry = e.target.getAttribute('value');
+    startFetching(true);
+  }
+});
+//////
