@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.gallery__item:hover {
+  transform: scale(1.1);
+}
+
 .gallery__image-container {
   position: relative;
   display: block;
@@ -87,8 +91,7 @@
   position: absolute;
   max-width: 7px;
   max-height: 10px;
-  top: 0px;
-  left: -10px;
+  margin-left: -10px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {

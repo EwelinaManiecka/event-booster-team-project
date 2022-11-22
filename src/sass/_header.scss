@@ -87,7 +87,7 @@ input::placeholder {
   width: 12px;
   height: 12px;
   top: 15px;
-  left: 245px;
+  left: 235px;
 }
 
 .header__list {
@@ -136,6 +136,10 @@ input::placeholder {
     height: 37px;
   }
 
+  .header__form {
+    display: flex;
+  }
+
   .header__search {
     width: 575px;
     height: 40px;
@@ -148,7 +152,7 @@ input::placeholder {
 
   .search-icon {
     top: 15px;
-    left: 245px;
+    left: 235px;
   }
 }
 
@@ -179,6 +183,9 @@ input::placeholder {
     height: 61px;
   }
 
+  .header__form {
+    display: flex;
+  }
   .header__search {
     width: 575px;
     height: 40px;
@@ -191,7 +198,7 @@ input::placeholder {
 
   .search-icon {
     top: 15px;
-    left: 245px;
+    left: 235px;
   }
 }
 
@@ -225,6 +232,7 @@ input::placeholder {
 .select-menu .select-btn {
   display: flex;
   height: 40px;
+  width: 270px;
   color: #b7b7b4;
   font-weight: 400;
   font-size: 16px;
@@ -239,6 +247,7 @@ input::placeholder {
 }
 
 .select-menu .options {
+  display: none;
   position: absolute;
   width: 270px;
   overflow-y: auto;
