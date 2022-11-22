@@ -62,7 +62,7 @@ li {
 }
 @media screen and (min-width: 1280px) {
   .container {
-    max-width: 1280px;
+    width: 1280px;
   }
 }
 .background {
@@ -245,7 +245,7 @@ input::placeholder {
   width: 12px;
   height: 12px;
   top: 15px;
-  left: 245px;
+  left: 235px;
 }
 
 .header__list {
@@ -292,6 +292,9 @@ input::placeholder {
   .header__title-second {
     height: 37px;
   }
+  .header__form {
+    display: flex;
+  }
   .header__search {
     width: 575px;
     height: 40px;
@@ -302,7 +305,7 @@ input::placeholder {
   }
   .search-icon {
     top: 15px;
-    left: 245px;
+    left: 235px;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -328,6 +331,9 @@ input::placeholder {
   .header__title-second {
     height: 61px;
   }
+  .header__form {
+    display: flex;
+  }
   .header__search {
     width: 575px;
     height: 40px;
@@ -338,7 +344,7 @@ input::placeholder {
   }
   .search-icon {
     top: 15px;
-    left: 245px;
+    left: 235px;
   }
 }
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 480px) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 480px) and (max-width: 767px), screen and (min-resolution: 192dpi) and (min-width: 480px) and (max-width: 767px), screen and (min-resolution: 2dppx) and (min-width: 480px) and (max-width: 767px) {
@@ -363,6 +369,7 @@ input::placeholder {
 .select-menu .select-btn {
   display: flex;
   height: 40px;
+  width: 270px;
   color: #b7b7b4;
   font-weight: 400;
   font-size: 16px;
@@ -558,6 +565,10 @@ input::placeholder {
   justify-content: center;
 }
 
+.gallery__item:hover {
+  transform: scale(1.1);
+}
+
 .gallery__image-container {
   position: relative;
   display: block;
@@ -565,10 +576,7 @@ input::placeholder {
   cursor: pointer;
   transition: transform 0.2s;
   margin-bottom: 10px;
-}
-
-.gallery__image-container:hover {
-  transform: scale(1.1);
+  pointer-events: none;
 }
 
 .gallery__image-container::before {
@@ -588,6 +596,14 @@ input::placeholder {
   height: 161px;
   border-radius: 50px 0px;
   padding-bottom: 5px;
+  overflow: hidden;
+}
+
+.gallery__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .gallery__item-name {
@@ -620,8 +636,7 @@ input::placeholder {
   position: absolute;
   max-width: 7px;
   max-height: 10px;
-  top: 0px;
-  left: -10px;
+  margin-left: -10px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
