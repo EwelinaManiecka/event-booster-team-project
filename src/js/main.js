@@ -88,7 +88,10 @@ formInput.addEventListener(
 
 countryList.addEventListener('click', e => {
   if (e.target.nodeName === 'LI') {
-    currentCountry = e.target.getAttribute('value');
+    const countryCode = e.target.getAttribute('value');
+    countryCode === 'ALL'
+      ? (currentCountry = '')
+      : (currentCountry = countryCode);
     startFetching(true);
   }
 });
