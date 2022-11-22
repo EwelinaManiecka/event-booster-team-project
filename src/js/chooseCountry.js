@@ -4,7 +4,7 @@ const optionMenu = document.querySelector('.select-menu'),
   sBtn_text = optionMenu.querySelector('.sBtn-text');
 
 selectBtn.addEventListener('click', () =>
-  optionMenu.classList.toggle('active')
+  optionMenu.classList.toggle('active')       
 );
 
 options.forEach(option => {

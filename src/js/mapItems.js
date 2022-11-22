@@ -1,4 +1,3 @@
-const undefGeo = { venues: [{ name: 'No info' }], isReal: false };
 const IMG_WIDTH = 1024;
 const IMG_HEIGHT = 683;
 
@@ -23,27 +22,23 @@ const mapItems = items => {
       : (newObject.price = '');
     item.url ? (newObject.ticketSite = item.url) : (newObject.ticketSite = '');
     item.info ? (newObject.info = item.info) : (newObject.info = '');
-    item._embedded
-      ? (newObject.geo = item._embedded)
-      : (newObject.geo = undefGeo);
+    item._embedded ? (newObject.geo = item._embedded) : (newObject.geo = null);
 
     return newObject;
   });
 
+  console.log(mapedItems); //TEST OBJECTS
 
-  const result = mapedItems;
-
-  console.log(result); //TEST OBJECTS
-
-  let findBestImg = result.map(item =>
+  let theBestImg = mapedItems.map(item =>
     item.images
       .filter(image => image.width === IMG_WIDTH && image.height === IMG_HEIGHT)
       .map(image => image.url)
   );
 
-  for (let i = 0; i < result.length; i++) {
-    result[i].imageURL = findBestImg[i][0];
-  }
+  const result = mapedItems.map((item, index) => {
+    item.imageURL = theBestImg[index][0];
+    return item;
+  });
 
   return result;
 };

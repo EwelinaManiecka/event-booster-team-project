@@ -2,11 +2,9 @@ const openModal = item => {
   document.getElementById('modal-image').src = item.imageURL;
   document.getElementById('modal-who').innerHTML = item.name;
   document.getElementById('modal-when').innerHTML = item.date + item.time;
-  item.info
-    ? (document.getElementById('modal-info').innerHTML = item.info)
-    : (document.getElementById('modal-info').innerHTML = '');
+  document.getElementById('modal-info').innerHTML = item.info;
 
-  if (!item.geo.isReal && item.geo.venues) {
+  if (item.geo && item.geo.venues) {
     let whereInfo = ' ';
 
     item.geo.venues[0].city.name
