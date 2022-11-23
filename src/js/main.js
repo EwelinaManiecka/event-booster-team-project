@@ -18,17 +18,14 @@ let currentAuthor = '';
 
 const buttonHolderID = 'gallery-pagination';
 const itemHolderID = 'gallery-list';
-
+const gallery = document.querySelector('#gallery-list');
 const loader = document.querySelector('.logo-container');
-
 const formInput = document.querySelector('#search-box');
-const formSelect = document.querySelector('#country-list');
 const form = document.querySelector('.header__form');
 const countryList = document.querySelector('#country-list');
 const backdrop = document.querySelector('.backdrop');
 const closeBtn = document.querySelector('#closeBtn');
 const authorBtn = document.querySelector('#authorBtn');
-
 const iconFront = document.querySelector('.icon-front');
 let percent = 0;
 
@@ -46,6 +43,7 @@ const loading = setInterval(() => {
   }
 }, 15);
 
+//Main fetch logic
 const startFetching = isNew => {
   loader.classList.remove('isHidden');
   fetchEvents(currentName, actualPage, currentCountry, itemHolderID, loader)
@@ -75,20 +73,16 @@ const startFetching = isNew => {
 
 startFetching(true);
 
-form.addEventListener('submit', e => e.preventDefault());
+//Form handlers and listeners
+const formUpdate = e => {
+  loader.classList.toggle('isHidden');
+  document.getElementById(buttonHolderID).innerHTML = '';
+  currentName = e.target.value;
+  actualPage = 0;
+  startFetching(true);
+};
 
-formInput.addEventListener(
-  'input',
-  _debounce(e => {
-    loader.classList.toggle('isHidden');
-    document.getElementById(buttonHolderID).innerHTML = '';
-    currentName = e.target.value;
-    actualPage = 0;
-    startFetching(true);
-  }, 700)
-);
-
-countryList.addEventListener('click', e => {
+const countrySelect = e => {
   if (e.target.nodeName === 'LI') {
     const countryCode = e.target.getAttribute('value');
     countryCode === 'ALL'
@@ -96,9 +90,14 @@ countryList.addEventListener('click', e => {
       : (currentCountry = countryCode);
     startFetching(true);
   }
-});
+};
 
-document.getElementById(itemHolderID).addEventListener('click', e => {
+form.addEventListener('submit', e => e.preventDefault());
+formInput.addEventListener('input', _debounce(formUpdate, 700));
+countryList.addEventListener('click', countrySelect);
+
+//Creating modal
+const createModalData = e => {
   if (e.target.classList.contains('gallery__item')) {
     let currentItem = itemsOnPage.filter(item => item.id === e.target.id);
     currentItem = currentItem[0];
@@ -106,22 +105,36 @@ document.getElementById(itemHolderID).addEventListener('click', e => {
     document.body.style.overflow = 'hidden';
     openModal(currentItem);
     currentAuthor = currentItem.name;
+    document.addEventListener('keydown', closeModalESC);
   }
-});
+};
+gallery.addEventListener('click', createModalData);
+
+//Close modal options
+
+const closeModal = () => {
+  backdrop.classList.toggle('isHidden');
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', closeModalESC);
+};
+
+const closeModalESC = e => {
+  e.key === 'Escape' ? closeModal() : '';
+};
 
 backdrop.addEventListener('click', e => {
   if (e.target.classList.contains('backdrop')) {
-    backdrop.classList.toggle('isHidden');
-    document.body.style.overflow = '';
+    closeModal();
   }
 });
 
 closeBtn.addEventListener('click', e => {
-  backdrop.classList.toggle('isHidden');
-  document.body.style.overflow = '';
+  closeModal();
 });
 
-authorBtn.addEventListener('click', e => {
+//More from this author
+
+const showMoreThisAythor = () => {
   backdrop.classList.toggle('isHidden');
   document.body.style.overflow = '';
   currentName = currentAuthor;
@@ -130,4 +143,8 @@ authorBtn.addEventListener('click', e => {
   startFetching(true);
   window.scrollTo({ top: 0, behavior: 'smooth' });
   formInput.value = currentName;
+};
+
+authorBtn.addEventListener('click', e => {
+  showMoreThisAythor();
 });
