@@ -9,7 +9,7 @@ const rednerItems = (items, id) => {
                   <p class="gallery__item-name">${name}</p>
                   <p class="gallery__item-date">${date}</p>
                   <p class="gallery__item-place">${
-                    geo ? geo.venues[0].name : 'No info'
+                    geo.venues ? geo.venues[0].name : 'No info'
                   }</p>
                 </div>
               </li>`;

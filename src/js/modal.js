@@ -4,6 +4,9 @@ const openModal = item => {
   document.getElementById('modal-who').innerHTML = item.name;
   document.getElementById('modal-when').innerHTML =
     item.date + '<br>' + item.time.slice(0, -3) + ` (${item.timeZone})`;
+
+  item.info.length > 350 ? (item.info = item.info.slice(0, 349) + `...`) : '';
+
   document.getElementById('modal-info').innerHTML = item.info;
 
   if (item.geo && item.geo.venues) {
@@ -17,10 +20,6 @@ const openModal = item => {
       : '';
     item.geo.venues[0].name
       ? (whereInfo += '<br>' + item.geo.venues[0].name)
-      : '';
-
-    item.geo.venues[0].country.name
-      ? (whereInfo += item.geo.venues[0].country.name)
       : '';
 
     document.getElementById('modal-where').innerHTML = whereInfo;

@@ -40,7 +40,9 @@ const loading = setInterval(() => {
     loader.classList.add('isHidden');
     document.querySelector('.logo-wrapper').classList.remove('black');
     loader.classList.add('semi-black');
-    loader.innerHTML = `<div class="spinner"><div class="loading loading--full-height"></div></div>`;
+    setTimeout(() => {
+      loader.innerHTML = `<div class="spinner"><div class="loading loading--full-height"></div></div>`;
+    }, 250);
   }
 }, 15);
 
@@ -116,6 +118,7 @@ backdrop.addEventListener('click', e => {
 
 closeBtn.addEventListener('click', e => {
   backdrop.classList.toggle('isHidden');
+  document.body.style.overflow = '';
 });
 
 authorBtn.addEventListener('click', e => {
