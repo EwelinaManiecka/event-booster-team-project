@@ -104,7 +104,6 @@ document.getElementById(itemHolderID).addEventListener('click', e => {
     document.body.style.overflow = 'hidden';
     openModal(currentItem);
     currentAuthor = currentItem.name;
-    document.body.setAttribute('overflow-x', 'hidden');
   }
 });
 
@@ -115,14 +114,13 @@ backdrop.addEventListener('click', e => {
   }
 });
 
-console.log(document.body);
-
 closeBtn.addEventListener('click', e => {
   backdrop.classList.toggle('isHidden');
 });
 
 authorBtn.addEventListener('click', e => {
   backdrop.classList.toggle('isHidden');
+  document.body.style.overflow = '';
   currentName = currentAuthor;
   document.getElementById(buttonHolderID).innerHTML = '';
   actualPage = 0;

@@ -72,7 +72,9 @@
 }
 
 input::placeholder {
-  color: #f2f2ef;
+  color: var(--txt-color-grey);
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .header__form__btn {
@@ -233,7 +235,7 @@ input::placeholder {
   display: flex;
   height: 40px;
   width: 270px;
-  color: #b7b7b4;
+  color: var(--txt-color-grey);
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
@@ -280,8 +282,9 @@ input::placeholder {
   margin-right: 12px;
 }
 .select-menu .options .option .option-text {
-  font-size: 17px;
-  color: #b7b7b4;
+  color: var(--txt-color-grey);
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .select-menu.active .options {
