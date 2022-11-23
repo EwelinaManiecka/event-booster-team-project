@@ -7,28 +7,30 @@ import _debounce from 'lodash.debounce';
 import './chooseCountry';
 import openModal from './modal.js';
 
-let actualPage = 0;
-let totalItems = 0;
-let itemsPerPage = 0;
-let pagination = null;
-let itemsOnPage = null;
-let currentName = '';
-let currentCountry = '';
-let currentAuthor = '';
+let actualPage = 0,
+  totalItems = 0,
+  itemsPerPage = 0,
+  pagination = null,
+  itemsOnPage = null,
+  currentName = '',
+  currentCountry = '',
+  currentAuthor = '',
+  percent = 0;
 
-const buttonHolderID = 'gallery-pagination';
-const itemHolderID = 'gallery-list';
-const gallery = document.querySelector('#gallery-list');
-const loader = document.querySelector('.logo-container');
-const formInput = document.querySelector('#search-box');
-const form = document.querySelector('.header__form');
-const countryList = document.querySelector('#country-list');
-const backdrop = document.querySelector('.backdrop');
-const closeBtn = document.querySelector('#closeBtn');
-const authorBtn = document.querySelector('#authorBtn');
-const iconFront = document.querySelector('.icon-front');
-let percent = 0;
+const buttonHolderID = 'gallery-pagination',
+  itemHolderID = 'gallery-list';
 
+const gallery = document.querySelector('#gallery-list'),
+  formInput = document.querySelector('#search-box'),
+  form = document.querySelector('.header__form'),
+  countryList = document.querySelector('#country-list'),
+  backdrop = document.querySelector('.backdrop'),
+  closeBtn = document.querySelector('#closeBtn'),
+  authorBtn = document.querySelector('#authorBtn'),
+  loader = document.querySelector('.logo-container'),
+  iconFront = document.querySelector('.icon-front');
+
+//Lodader
 const loading = setInterval(() => {
   percent += 1;
   iconFront.style = `width: ${percent}%`;
@@ -71,7 +73,7 @@ const startFetching = isNew => {
     });
 };
 
-startFetching(true);
+startFetching(true); //First fatching after page load
 
 //Form handlers and listeners
 const formUpdate = e => {
@@ -108,10 +110,10 @@ const createModalData = e => {
     document.addEventListener('keydown', closeModalESC);
   }
 };
+
 gallery.addEventListener('click', createModalData);
 
 //Close modal options
-
 const closeModal = () => {
   backdrop.classList.toggle('isHidden');
   document.body.style.overflow = '';
@@ -134,7 +136,7 @@ closeBtn.addEventListener('click', e => {
 
 //More from this author
 
-const showMoreThisAythor = () => {
+const showMoreThisAuthor = () => {
   backdrop.classList.toggle('isHidden');
   document.body.style.overflow = '';
   currentName = currentAuthor;
@@ -146,5 +148,5 @@ const showMoreThisAythor = () => {
 };
 
 authorBtn.addEventListener('click', e => {
-  showMoreThisAythor();
+  showMoreThisAuthor();
 });
