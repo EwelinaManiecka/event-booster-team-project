@@ -6,29 +6,43 @@
     overflow: auto;
     border-radius: 150px 0px;
     padding: 75px 17px 114px 17px;
+    position: relative;
   }
 
   &__close_btn {
-    background: none;
-    float: right;
-    position: relative;
-    top: -55px;
-    right: 0;
+    background: transparent;
     border: none;
     cursor: pointer;
+    position: absolute;
+    right: 30px;
+    top: 30px;
 
     &__icon {
       width: 17px;
       height: 17px;
+      z-index: 1001;
     }
   }
 
   &__image-min {
-    margin: auto;
     background-color: black;
     width: 102px;
     height: 102px;
     border-radius: 50%;
+    overflow: hidden;
+
+    & img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__top{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
   }
 
   &__mid {
@@ -100,6 +114,8 @@
 
   &__bot {
     margin-top: 25px;
+    display: flex;
+    justify-content: center;
   }
 
   &__more-btn {
@@ -116,7 +132,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin: auto;
   }
 }
 
@@ -156,6 +171,7 @@
     }
 
     &__bot {
+      
       margin-top: 43px;
     }
   }
@@ -171,8 +187,6 @@
     }
 
     &__close_btn {
-      top: -55px;
-      right: 0;
 
       &__icon {
         width: 25px;
