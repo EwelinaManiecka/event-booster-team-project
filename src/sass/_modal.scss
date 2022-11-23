@@ -1,11 +1,10 @@
 .modal {
-
   &__content {
     background-color: var(--bg-color-modal);
     max-width: 272px;
     height: max-content;
     overflow: auto;
-    border-radius: 150px 0px;  
+    border-radius: 150px 0px;
     padding: 75px 17px 114px 17px;
     position: relative;
   }
@@ -81,11 +80,11 @@
     margin-top: 5px;
   }
 
-  &__price-range{
+  &__price-range {
     padding-left: 40px;
     position: relative;
 
-    &::before{
+    &::before {
       content: url(./../images/ticket.svg);
       position: absolute;
       top: 0;
@@ -94,7 +93,6 @@
       height: 100%;
     }
   }
-
 
   &__barcode {
     width: 24px;
@@ -134,13 +132,11 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.99px) {
   .modal {
- 
     &__content {
       max-width: 595px;
       max-height: max-content;
@@ -154,7 +150,7 @@
     }
 
     &__mid {
-      margin-top:36px;
+      margin-top: 36px;
     }
 
     &__image-container {
@@ -183,19 +179,19 @@
 
 @media screen and (min-width: 1280px) {
   .modal {
-
     &__content {
       padding: 62px 17px 114px 50px;
       max-width: 930px;
       max-height: max-content;
-      border-radius: 300px 0px;  
+      border-radius: 300px 0px;
     }
 
     &__close_btn {
+
       &__icon {
         width: 25px;
         height: 25px;
-      }  
+      }
     }
 
     &__image-min {
@@ -204,7 +200,7 @@
     }
 
     &__mid {
-      margin-top:41px;
+      margin-top: 41px;
     }
 
     &__image-container {
