@@ -24,7 +24,13 @@ const mapItems = items => {
     item.info
       ? (newObject.info = item.info)
       : (newObject.info = 'There is no info for this event.');
-    item._embedded ? (newObject.geo = item._embedded) : (newObject.geo = null);
+    item._embedded
+      ? (newObject.geo = item._embedded)
+      : (newObject.geo = {
+          venues: [
+            { name: 'No info', city: { name: '' }, country: { name: '' } },
+          ],
+        });
 
     return newObject;
   });

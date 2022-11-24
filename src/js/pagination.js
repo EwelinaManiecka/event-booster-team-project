@@ -16,7 +16,7 @@ class Pagination {
     this.handler = new Tui(this.buttonHolder, {
       totalItems: this.totalItems,
       itemsPerPage: this.itemsPerPage,
-      visiblePages: 5,
+      visiblePages: 4,
       centerAlign: true,
     });
   }
