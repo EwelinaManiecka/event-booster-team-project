@@ -35,8 +35,6 @@ const mapItems = items => {
     return newObject;
   });
 
-  console.log(mapedItems); //TEST OBJECTS
-
   let theBestImg = mapedItems.map(item =>
     item.images
       .filter(image => image.width === IMG_WIDTH && image.height === IMG_HEIGHT)
