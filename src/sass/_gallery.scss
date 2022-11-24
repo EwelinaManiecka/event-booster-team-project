@@ -147,8 +147,12 @@
     padding: 0 137px;
     padding-top: 25px;
 
+&__list {
+    gap: 26px;
+  }
+
   &__item {
-    flex-basis: calc((100% - 45px) / 4);
+    flex-basis: calc((100% - 78px) / 4);
   }
 
     &__image {
