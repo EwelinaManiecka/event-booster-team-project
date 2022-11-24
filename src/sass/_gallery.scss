@@ -13,8 +13,15 @@
   justify-content: center;
   padding-top: 25px;
 
-  &__item {
-    transition: transform 0.2s;
+&__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px
+}
+
+&__item {
+  flex-basis: calc((100% - 15px) / 2);
+  transition: transform 0.2s;
 
     &:hover {
       transform: scale(1.1);
@@ -98,6 +105,11 @@
     padding: 0 87px;
     padding-top: 25px;
 
+  &__item {
+    flex-basis: calc((100% - 30px - 174px) / 3);
+  }
+
+
     &__list {
       gap: 26px;
     }
@@ -139,6 +151,10 @@
     width: 1280px;
     padding: 0 137px;
     padding-top: 25px;
+
+  &__item {
+    flex-basis: calc((100% - 45px) / 4);
+  }
 
     &__image {
       width: 180px;

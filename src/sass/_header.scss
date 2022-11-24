@@ -20,8 +20,8 @@
 
   &__logo-picture {
     position: absolute;
-    height: 213.97px;
-    width: 180px;
+    height: 90px;
+    width: 106.5px;
   }
 
   &__title {
@@ -108,8 +108,8 @@ input::placeholder {
     background-image: url('../images/header-banner-tablet@1x.png');
 
     &__logo-picture {
-      height: 359px;
-      width: 302px;
+      height: 151px;
+      width: 179px;
     }
 
     &__title {
@@ -161,8 +161,8 @@ input::placeholder {
     background-image: url('../images/header-banner-desktop@1x.png');
 
     &__logo-picture {
-      height: 477px;
-      width: 402px;
+      height: 201px;
+      width: 239px;
     }
 
     &__title {
@@ -294,7 +294,7 @@ input::placeholder {
 .select-menu.active .options {
   display: block;
   opacity: 0;
-  z-index: 10;
+  z-index: 3;
   animation-name: fadeInUp;
   -webkit-animation-name: fadeInUp;
   animation-duration: 0.4s;
