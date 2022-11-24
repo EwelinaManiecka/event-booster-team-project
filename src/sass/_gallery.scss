@@ -106,6 +106,10 @@
     padding: 0 87px;
     padding-top: 25px;
 
+    &__list {
+    gap: 26px;
+    }
+    
   &__item {
     flex-basis: calc((100% - 30px - 174px) / 3);
   }
