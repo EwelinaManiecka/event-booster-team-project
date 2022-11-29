@@ -3,7 +3,7 @@
 Developers:
 Grzegorz Łukasik
 Kinga Stefańska
-Piotr Dreschler
+Piotr Drechsler
 Sebastian Jurewicz
 Ewelina Maniecka
 
