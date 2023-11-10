@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = `7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`;
+const API_KEY = `gwmGvyT5pivVeswgHYjVhgoaS4bGx7Z4`;
 const BASE_URL = `https://app.ticketmaster.com/discovery/v2/events.json?`;
 
 const fetchEvents = async (name, page, country, onError, stopID) => {
